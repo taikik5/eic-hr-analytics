@@ -260,10 +260,19 @@ GITHUB_REPO_NAME=eic-hr-analytics
 4. 以下を入力：
    - **Category name**: `Daily Digest`
    - **Description**: `EIC daily collection summaries`（任意）
-   - **Discussion Format**: `Announcement`（推奨）
+   - **Discussion Format**: `Open-ended Discussion`（**重要**: Announcementは権限エラーの原因になります）
 5. **Create** をクリック
 
-#### 2.3 カテゴリIDの取得
+#### 2.3 ワークフロー権限の設定
+
+> ⚠️ **重要**: この設定がないとDiscussionへの投稿が失敗します
+
+1. リポジトリの **Settings** > **Actions** > **General** を開く
+2. 下部の「**Workflow permissions**」セクションを確認
+3. 「**Read and write permissions**」を選択
+4. **Save** をクリック
+
+#### 2.4 カテゴリIDの取得
 
 1. [GitHub GraphQL Explorer](https://docs.github.com/en/graphql/overview/explorer) にアクセス
 2. GitHubアカウントでサインイン
@@ -284,7 +293,7 @@ query {
 
 4. 結果から `Daily Digest` の `id` をコピー（例：`DIC_kwDO...`）
 
-#### 2.4 カテゴリIDの設定
+#### 2.5 カテゴリIDの設定
 
 `config/categories.json` を編集：
 
@@ -520,13 +529,35 @@ GitHub DiscussionsのカテゴリID：
 |--------|------|----------|
 | `OPENAI_API_KEY is not set` | Secretが未設定 | Step 4を確認 |
 | `GITHUB_TOKEN` 権限エラー | 権限不足 | workflowファイルの`permissions`を確認 |
-| `Discussion category not found` | カテゴリID誤り | Step 2.3を再実行 |
+| `Discussion category not found` | カテゴリID誤り | Step 2.4を再実行 |
+
+#### GitHub Discussionが作成されない
+
+エラーログに `Resource not accessible by integration` が表示される場合：
+
+**原因1: ワークフロー権限設定**
+
+1. リポジトリの **Settings** > **Actions** > **General** を開く
+2. 下部の「**Workflow permissions**」セクションを確認
+3. 「**Read and write permissions**」を選択
+4. **Save** をクリック
+
+**原因2: Discussionカテゴリのフォーマット**
+
+「Announcement」タイプのカテゴリはGITHUB_TOKENからの投稿が制限される場合があります。
+
+1. リポジトリの **Discussions** タブを開く
+2. 左サイドバーの **Categories** 横の ⚙️ をクリック
+3. 「Daily Digest」カテゴリの ✏️（編集）をクリック
+4. **Discussion Format** を「**Open-ended Discussion**」に変更
+5. **Save** をクリック
 
 #### Slack通知が届かない
 
 1. Webhook URLが正しいか確認
 2. Slackアプリがチャンネルに追加されているか確認
 3. ワークフローのログで`Slack notification`の出力を確認
+4. Discussion作成が失敗した場合でも、Slack通知は送信されます（警告メッセージ付き）
 
 #### 記事が収集されない
 
