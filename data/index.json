@@ -4,6 +4,11 @@
     "source": "HR NOTE",
     "title": "AI活用で人事領域をどう効率化する？「コミュニケーションの可視化」がもたらす変化とは"
   },
+  "0cbb43a2d63e710bc687957c43eb2c3dbc95863c2d20a361723015e375bdee49": {
+    "first_seen": "2026-01-31T19:58:44.570966+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "Gemfileを掃除しよう —— 見知らぬGemが追加された背景を追ってみた"
+  },
   "193e1407eee60e98194abad590a9149631af15b0fccaacddfd6ef5570fa2d8a3": {
     "first_seen": "2026-01-31T16:38:45.656520+09:00",
     "source": "note HR関連",
@@ -19,6 +24,11 @@
     "source": "SmartHR Tech Blog",
     "title": "プロダクトエンジニアと肩を並べて品質をデザインする｡入社3ヶ月で実践した､開発プロセスから変えるQAの形"
   },
+  "1f89755e8c0744a090ab765e5e2254ac27aadca13d4434d65a0c766571182a5b": {
+    "first_seen": "2026-01-31T19:59:22.315696+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "歴史あるファイルアップロード機構との向き合い方 —— CarrierWaveの課題にどう対処するか"
+  },
   "26692a763863b37a385b1cbf559f72379cfd1919a0cef68143f74f3f3707be97": {
     "first_seen": "2026-01-31T19:21:48.612026+09:00",
     "source": "SmartHR Tech Blog",
@@ -29,10 +39,30 @@
     "source": "note HR関連",
     "title": "【人事問題を誰かに話したくなった時】共有し過ぎないための停止点"
   },
+  "28ca191b892efef9c1a7ade9a637a6e1da87fe9c2dbaee464b66cd1d5d229763": {
+    "first_seen": "2026-01-31T19:58:30.284469+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "権限基盤のアーキテクチャ戦略 —— 新しい権限基盤の設計"
+  },
+  "2ae7e328649c754515033ba4c3d24c1143d05cd05ebe93df3aff7d1ac6f35c0e": {
+    "first_seen": "2026-01-31T19:58:50.157195+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "YAPC::Fukuoka 非公式リジェクトコン 2025 開催レポート"
+  },
   "2c25e6631a9f1ce8c94d04d640fa2864a7f4b3c1df9e09177afae7c0b1830862": {
     "first_seen": "2026-01-31T16:37:16.784840+09:00",
     "source": "HR NOTE",
     "title": "社員の年収アップが企業成長につながる——公平で納得度の高い昇給制度をどう設計するか"
+  },
+  "32b6ca7b7250ce8c2a23ecd0b24888459cab213e0819c2606b44bf017df64613": {
+    "first_seen": "2026-01-31T19:59:15.615172+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "MCP Serverで大量のヘルプページを爆速で作る"
+  },
+  "385f2b9aeb581a988dd75852710c15bd2e669e49968e0b73670e716232a03ca2": {
+    "first_seen": "2026-01-31T19:58:56.983515+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "SmartHRはRegional Scrum Gathering Tokyo 2026にシルバースポンサーとして協賛し、ブース出展と登壇を行う"
   },
   "3f731ade07d62d5254a22d7fd0c98fa40754eea09983b4e10d6481f228965ebc": {
     "first_seen": "2026-01-31T16:36:52.810626+09:00",
@@ -84,6 +114,11 @@
     "source": "note HR関連",
     "title": "人や組織に火をつける──組織を強くするために採用より大切なこと"
   },
+  "66cf410e1d3ec500218771a4a11fbf9a908e9ddd0110010aff11461733cbfccc": {
+    "first_seen": "2026-01-31T19:57:36.523916+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "2段階DSPyで、オンライン指標から“オフラインの物差し”を育てる —— 問い合わせ対応AIの評価指標の作り方"
+  },
   "67744560bd1531149a84df4d19de29ffc11379779f5727dd7dcd94cd24532b39": {
     "first_seen": "2026-01-31T16:38:41.027892+09:00",
     "source": "note HR関連",
@@ -114,6 +149,11 @@
     "source": "note HR関連",
     "title": "口コミ評価が低い会社の現実と変革の必要性"
   },
+  "7989cc17118881afed0bb5329e1b5f0876246e7edf65e85027f6e1ecf26dfee9": {
+    "first_seen": "2026-01-31T19:57:43.300920+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "Railsにおける未ログインユーザーのセッション削減方法 —— セッションストアのストレージを抑制！"
+  },
   "806f0a7f4fbcff489719505ce7a04c917a25557ab68afa4a1ab54bfcd99e90e0": {
     "first_seen": "2026-01-31T16:39:06.261950+09:00",
     "source": "note HR関連",
@@ -123,6 +163,16 @@
     "first_seen": "2026-01-31T16:37:50.246324+09:00",
     "source": "note HR関連",
     "title": "中小企業の採用計画は「場当たり」でいい"
+  },
+  "8ba30158d8473d99e41bc7803d3ed8ef12cf49eb231b96d0a5526efb75dce729": {
+    "first_seen": "2026-01-31T19:56:58.735618+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "北陸Ruby会議01レポート —— みんなとわたしたちのRubyの使い方"
+  },
+  "937e5947f056ffe354f01c4350c8db9fa551d3ee77765e3e514b448537a64c76": {
+    "first_seen": "2026-01-31T19:59:02.939354+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "SmartHRに開発組織のイネーブリングユニット「DevEnable」を新設しました"
   },
   "9a780becbc115eb215693d9a69e47b5860f056e93682467737e8918aa57c3806": {
     "first_seen": "2026-01-31T19:19:03.464599+09:00",
@@ -144,10 +194,25 @@
     "source": "HR NOTE",
     "title": "インテージホールディングスの人事に聞く、従業員サーベイを「因果分析」する意味と実践方法"
   },
+  "aeefa1b1ff6f707072bca8bf2b3765bc81324963c2b4d7c7a754950c27ebb2f5": {
+    "first_seen": "2026-01-31T19:57:49.829117+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "スプレッド構文と残余引数の安全な使い方 —— ESLintによる品質管理"
+  },
   "b0998ce87ad3b81d3305e98c8d6d44461641624dc2a7eea05dc740fb9aff9023": {
     "first_seen": "2026-01-31T19:21:09.364155+09:00",
     "source": "Qiita HR関連",
     "title": "米国国務省、H-1BおよびH-4ビザ申請者のオンライン審査ルールを拡大発表"
+  },
+  "b20f6628ff641316d4299b9fb594179c83a58b62c0809a47014a77d3246dcdca": {
+    "first_seen": "2026-01-31T19:57:28.344020+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "【27卒】夏のインターンシップ（9月）を開催しました！"
+  },
+  "b322cd93bc8243242ba6253fd9d6466bf76193ed44215b4041386a7b50cbfb1e": {
+    "first_seen": "2026-01-31T19:58:00.174240+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "新卒研修でのOODAふりかえり実践 —— 3ヶ月間で8種類のふりかえりを実施してみた"
   },
   "c04991d00d675e3dc8f8d7524d3ceaf150874b01ad92d9b209cdeba5266246ac": {
     "first_seen": "2026-01-31T19:21:56.358251+09:00",
@@ -204,10 +269,30 @@
     "source": "SmartHR Tech Blog",
     "title": "複雑な要件を1クエリで完結させる、PostgreSQL活用術"
   },
+  "da06c2495baddb9e1242e1dbd2d0b66d498d0a941684229cc55ed05c676f3002": {
+    "first_seen": "2026-01-31T19:57:16.859996+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "SmartHRのQAエンジニア歴4年で見えてきた「QAエンジニアの役割」"
+  },
   "dbb5d092023c95628f31603bde5a0d05fd3583e3d4a5b2df9aa088184a5f3082": {
     "first_seen": "2026-01-31T16:37:55.684654+09:00",
     "source": "note HR関連",
     "title": "給与の設定ミスが見つかった日。HRと社員の“信頼関係”の力"
+  },
+  "dc7cef702799de6508db138c2b82f179038f11e0059f359b604315cccecf51f4": {
+    "first_seen": "2026-01-31T19:58:16.754659+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "チームで良いコードの基準がバラバラ？ 『オブジェクト指向設計実践ガイド』の読書会を通して共通認識を作りました"
+  },
+  "dd3dedd8e771a95721ad7b2600a58b902a57b490b50dc1d3f03a3fd42a643b64": {
+    "first_seen": "2026-01-31T19:59:10.062610+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "【27卒】夏のインターンシップ（8月）を開催しました！"
+  },
+  "ec4d69f8cfd006db72f293ded2177cfd204519d8f67e22e8a3af3f7a0991134b": {
+    "first_seen": "2026-01-31T19:58:23.708863+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "SmartHR CREが目指すRevOpsの実践とその意義"
   },
   "f19d7e2c97a5af1ca2750c684fc898677823fb09baad7c3086c691bf15a58765": {
     "first_seen": "2026-01-31T16:38:07.230393+09:00",
@@ -239,14 +324,29 @@
     "source": "SmartHR Tech Blog",
     "title": "SmartHRはSRE Kaigi 2026に全力です —— 登壇者2名！ ブースでSREの人数比調査！ 新作アクキーもお披露目！"
   },
+  "fb576389d3b66eb924b2f5cec5dd1f6f5b84aca794f0de76f615c8fa842caf2f": {
+    "first_seen": "2026-01-31T19:57:08.545049+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "権限基盤の活動を紹介します！ —— これまでの振り返りとこれからの挑戦"
+  },
   "fc027b778ea20d3f56ca65c76faef986631d4b8f5232dcf3d3c12116c982d9ff": {
     "first_seen": "2026-01-31T16:36:25.895845+09:00",
     "source": "HR NOTE",
     "title": "ビジネス職でもニーズ急増、理系学生のスキルが支持される理由 ～「学会形式」の逆求人イベントから見えた、新しい理系採用の形～"
   },
+  "fe7d1ccea707f425d2ea255fab199e3e0dfdbc1eafb59497b3e8baf98ab85383": {
+    "first_seen": "2026-01-31T19:58:08.496080+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "入社1年目でチーフに。経験豊富なスペシャリスト集団をリードするための試行錯誤"
+  },
   "febe82e775873018199d9907c89e66303c108717ccdc5cd1a0e5b3b65823d789": {
     "first_seen": "2026-01-31T19:20:45.917079+09:00",
     "source": "SmartHR Tech Blog",
     "title": "SREチームへの取材記事がNew Relicのサイトに掲載されました"
+  },
+  "ff7daae25ef2e49aefd9485c7eef4f4688869eb13fd5914abce6d02039161c70": {
+    "first_seen": "2026-01-31T19:58:38.176150+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "Technical Writing Meetup vol.47 登壇レポート"
   }
 }
