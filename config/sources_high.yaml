@@ -1,5 +1,6 @@
 # High Trust情報源
 # 省庁・公的機関、国際機関、コンサル、論文/研究等
+# NOTE: テスト用に2ソースに削減中。本番時はコメントアウトを解除
 
 sources:
   # 省庁・公的機関
@@ -11,57 +12,6 @@ sources:
     source_type: ministry
     language: ja
 
-  - key: meti_news
-    name: "経済産業省 新着情報"
-    type: rss
-    url: "https://www.meti.go.jp/rss/recent.xml"
-    publisher: "経済産業省"
-    source_type: ministry
-    language: ja
-
-  # 研究機関
-  - key: jil_news
-    name: "労働政策研究・研修機構 新着"
-    type: rss
-    url: "https://www.jil.go.jp/rss/whatsnew.xml"
-    publisher: "JILPT"
-    source_type: intl_org
-    language: ja
-
-  - key: rieti_news
-    name: "経済産業研究所 新着"
-    type: rss
-    url: "https://www.rieti.go.jp/jp/rss/index.xml"
-    publisher: "RIETI"
-    source_type: intl_org
-    language: ja
-
-  # コンサルティング・シンクタンク
-  - key: recruit_works
-    name: "リクルートワークス研究所"
-    type: rss
-    url: "https://www.works-i.com/feed/"
-    publisher: "リクルートワークス研究所"
-    source_type: consulting
-    language: ja
-
-  - key: nri_hr
-    name: "野村総合研究所"
-    type: rss
-    url: "https://www.nri.com/jp/knowledge/blog/feed"
-    publisher: "野村総合研究所"
-    source_type: consulting
-    language: ja
-
-  # メディア
-  - key: nikkei_hr
-    name: "日経 人事・労務"
-    type: rss
-    url: "https://www.nikkei.com/rss/feeds/economy.xml"
-    publisher: "日本経済新聞"
-    source_type: news
-    language: ja
-
   - key: hrnote
     name: "HR NOTE"
     type: rss
@@ -70,19 +20,67 @@ sources:
     source_type: news
     language: ja
 
-  # 国際機関
-  - key: ilo_news
-    name: "ILO ニュース"
-    type: rss
-    url: "https://www.ilo.org/global/rss/lang--en/index.htm"
-    publisher: "International Labour Organization"
-    source_type: intl_org
-    language: en
+  # --- 本番用ソース（テスト中はコメントアウト） ---
+  # - key: meti_news
+  #   name: "経済産業省 新着情報"
+  #   type: rss
+  #   url: "https://www.meti.go.jp/rss/recent.xml"
+  #   publisher: "経済産業省"
+  #   source_type: ministry
+  #   language: ja
 
-  - key: oecd_employment
-    name: "OECD 雇用・労働"
-    type: rss
-    url: "https://www.oecd.org/employment/rss/index.xml"
-    publisher: "OECD"
-    source_type: intl_org
-    language: en
+  # - key: jil_news
+  #   name: "労働政策研究・研修機構 新着"
+  #   type: rss
+  #   url: "https://www.jil.go.jp/rss/whatsnew.xml"
+  #   publisher: "JILPT"
+  #   source_type: intl_org
+  #   language: ja
+
+  # - key: rieti_news
+  #   name: "経済産業研究所 新着"
+  #   type: rss
+  #   url: "https://www.rieti.go.jp/jp/rss/index.xml"
+  #   publisher: "RIETI"
+  #   source_type: intl_org
+  #   language: ja
+
+  # - key: recruit_works
+  #   name: "リクルートワークス研究所"
+  #   type: rss
+  #   url: "https://www.works-i.com/feed/"
+  #   publisher: "リクルートワークス研究所"
+  #   source_type: consulting
+  #   language: ja
+
+  # - key: nri_hr
+  #   name: "野村総合研究所"
+  #   type: rss
+  #   url: "https://www.nri.com/jp/knowledge/blog/feed"
+  #   publisher: "野村総合研究所"
+  #   source_type: consulting
+  #   language: ja
+
+  # - key: nikkei_hr
+  #   name: "日経 人事・労務"
+  #   type: rss
+  #   url: "https://www.nikkei.com/rss/feeds/economy.xml"
+  #   publisher: "日本経済新聞"
+  #   source_type: news
+  #   language: ja
+
+  # - key: ilo_news
+  #   name: "ILO ニュース"
+  #   type: rss
+  #   url: "https://www.ilo.org/global/rss/lang--en/index.htm"
+  #   publisher: "International Labour Organization"
+  #   source_type: intl_org
+  #   language: en
+
+  # - key: oecd_employment
+  #   name: "OECD 雇用・労働"
+  #   type: rss
+  #   url: "https://www.oecd.org/employment/rss/index.xml"
+  #   publisher: "OECD"
+  #   source_type: intl_org
+  #   language: en
