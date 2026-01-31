@@ -1,0 +1,23 @@
+# EIC - External Insight Collector
+# Python 3.11+
+
+# OpenAI API
+openai>=1.12.0
+
+# HTTP requests
+requests>=2.31.0
+
+# RSS parsing
+feedparser>=6.0.10
+
+# Content extraction
+trafilatura>=1.6.0
+
+# YAML config
+PyYAML>=6.0.1
+
+# Date/time handling
+python-dateutil>=2.8.2
+
+# Environment variables
+python-dotenv>=1.0.0

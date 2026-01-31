@@ -1,0 +1,115 @@
+# HRテーマ辞書
+# LLMはこのキーからthemesを選択する
+
+themes:
+  - key: recruiting
+    name: "採用"
+    keywords:
+      - "採用"
+      - "求人"
+      - "選考"
+      - "内定辞退"
+      - "母集団形成"
+      - "recruiting"
+      - "hiring"
+      - "talent acquisition"
+
+  - key: attrition
+    name: "離職"
+    keywords:
+      - "離職"
+      - "退職"
+      - "定着"
+      - "オンボーディング"
+      - "attrition"
+      - "turnover"
+      - "retention"
+
+  - key: compensation
+    name: "賃金"
+    keywords:
+      - "賃金"
+      - "給与"
+      - "報酬"
+      - "ペイレンジ"
+      - "賃上げ"
+      - "格差"
+      - "pay"
+      - "compensation"
+      - "salary"
+
+  - key: engagement
+    name: "エンゲージメント"
+    keywords:
+      - "エンゲージメント"
+      - "サーベイ"
+      - "eNPS"
+      - "パルスサーベイ"
+      - "従業員満足度"
+      - "engagement"
+      - "pulse survey"
+
+  - key: human_capital
+    name: "人的資本開示"
+    keywords:
+      - "人的資本"
+      - "ISO30414"
+      - "統合報告"
+      - "開示"
+      - "human capital"
+      - "disclosure"
+
+  - key: reskilling
+    name: "リスキリング"
+    keywords:
+      - "リスキリング"
+      - "研修"
+      - "人材育成"
+      - "学習"
+      - "upskilling"
+      - "reskilling"
+      - "L&D"
+
+  - key: labor_market
+    name: "労働市場/制度"
+    keywords:
+      - "労働市場"
+      - "労働統計"
+      - "法改正"
+      - "労働力調査"
+      - "雇用統計"
+      - "labor market"
+      - "employment statistics"
+
+  - key: dei
+    name: "DE&I"
+    keywords:
+      - "ダイバーシティ"
+      - "インクルージョン"
+      - "多様性"
+      - "女性活躍"
+      - "障害者雇用"
+      - "diversity"
+      - "inclusion"
+      - "equity"
+
+  - key: hr_tech
+    name: "HRテック"
+    keywords:
+      - "HRテック"
+      - "HR Tech"
+      - "タレントマネジメント"
+      - "ピープルアナリティクス"
+      - "people analytics"
+      - "HRIS"
+
+  - key: wellbeing
+    name: "ウェルビーイング"
+    keywords:
+      - "ウェルビーイング"
+      - "健康経営"
+      - "メンタルヘルス"
+      - "働き方"
+      - "wellbeing"
+      - "wellness"
+      - "work-life balance"

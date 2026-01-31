@@ -1,0 +1,86 @@
+# Trend情報源
+# Zenn/Qiita/企業Tech Blog等（トレンド把握目的）
+
+sources:
+  # 技術ブログ・メディア
+  - key: zenn_hr
+    name: "Zenn HR関連"
+    type: rss
+    url: "https://zenn.dev/topics/hr/feed"
+    publisher: "Zenn"
+    source_type: tech
+    language: ja
+
+  - key: zenn_people_analytics
+    name: "Zenn ピープルアナリティクス"
+    type: rss
+    url: "https://zenn.dev/topics/peopleanalytics/feed"
+    publisher: "Zenn"
+    source_type: tech
+    language: ja
+
+  - key: qiita_hr
+    name: "Qiita HR関連"
+    type: rss
+    url: "https://qiita.com/tags/hr/feed"
+    publisher: "Qiita"
+    source_type: tech
+    language: ja
+
+  - key: note_hr
+    name: "note HR関連"
+    type: rss
+    url: "https://note.com/hashtag/人事/rss"
+    publisher: "note"
+    source_type: blog
+    language: ja
+
+  # 企業ブログ
+  - key: mercari_hr
+    name: "メルカリ Engineering Blog"
+    type: rss
+    url: "https://engineering.mercari.com/blog/feed.xml"
+    publisher: "メルカリ"
+    source_type: blog
+    language: ja
+
+  - key: cybozu_hr
+    name: "サイボウズ式"
+    type: rss
+    url: "https://cybozushiki.cybozu.co.jp/feed"
+    publisher: "サイボウズ"
+    source_type: blog
+    language: ja
+
+  - key: smarthr_tech
+    name: "SmartHR Tech Blog"
+    type: rss
+    url: "https://tech.smarthr.jp/feed"
+    publisher: "SmartHR"
+    source_type: blog
+    language: ja
+
+  # 海外Trend
+  - key: hbr_hr
+    name: "Harvard Business Review - HR"
+    type: rss
+    url: "https://hbr.org/topic/human-resource-management/feed"
+    publisher: "Harvard Business Review"
+    source_type: consulting
+    language: en
+
+  - key: shrm_news
+    name: "SHRM News"
+    type: rss
+    url: "https://www.shrm.org/rss/pages/news.aspx"
+    publisher: "SHRM"
+    source_type: news
+    language: en
+
+  - key: medium_hr
+    name: "Medium HR & Leadership"
+    type: rss
+    url: "https://medium.com/feed/tag/human-resources"
+    publisher: "Medium"
+    source_type: blog
+    language: en
