@@ -69,6 +69,8 @@ jobs:
           else
             DATE=$(date +%Y-%m-%d)
             git commit -m "chore(eic): daily collection ${DATE}"
+            # Pull latest changes and rebase before pushing
+            git pull --rebase origin main || true
             git push
             echo "Changes committed and pushed"
           fi
