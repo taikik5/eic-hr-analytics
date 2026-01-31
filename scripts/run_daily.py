@@ -21,6 +21,8 @@ from scripts.utils import (
     get_jst_today,
     OPENAI_API_KEY,
     GITHUB_TOKEN,
+    GITHUB_REPO_OWNER,
+    GITHUB_REPO_NAME,
     MAX_HIGH_TRUST_ITEMS,
     MAX_TREND_ITEMS,
 )
@@ -339,20 +341,25 @@ def run_daily(date_override: str | None = None) -> int:
     else:
         logger.info("No new items collected, skipping Discussions")
 
-    # Slack notification
-    if discussion_url:
+    # Slack notification (send even if Discussion failed)
+    if high_items or trend_items:
         logger.info("-" * 40)
         logger.info("Sending Slack notification")
 
         highlights = select_highlights(high_items, trend_items, max_count=5)
 
+        # Fallback URL if Discussion creation failed
+        fallback_url = f"https://github.com/{GITHUB_REPO_OWNER}/{GITHUB_REPO_NAME}"
+        notification_url = discussion_url or fallback_url
+
         try:
             send_daily_notification(
                 date_str=date_str,
-                discussion_url=discussion_url,
+                discussion_url=notification_url,
                 high_count=len(high_items),
                 trend_count=len(trend_items),
                 highlights=highlights,
+                discussion_failed=(discussion_url is None),
             )
         except Exception as e:
             logger.error(f"Slack notification error: {e}")

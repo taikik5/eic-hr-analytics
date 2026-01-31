@@ -19,16 +19,18 @@ def build_slack_blocks(
     high_count: int,
     trend_count: int,
     highlights: list[dict],
+    discussion_failed: bool = False,
 ) -> list[dict]:
     """
     Build Slack Block Kit message.
 
     Args:
         date_str: Date string (YYYY-MM-DD)
-        discussion_url: URL to GitHub Discussion
+        discussion_url: URL to GitHub Discussion (or fallback repo URL)
         high_count: Number of HIGH trust items
         trend_count: Number of TREND items
         highlights: Top items to feature
+        discussion_failed: Whether Discussion creation failed
 
     Returns:
         List of Block Kit blocks
@@ -58,6 +60,20 @@ def build_slack_blocks(
             },
         },
     ]
+
+    # Add warning if Discussion creation failed
+    if discussion_failed:
+        blocks.append(
+            {
+                "type": "context",
+                "elements": [
+                    {
+                        "type": "mrkdwn",
+                        "text": "⚠️ GitHub Discussionの作成に失敗しました。データは正常に保存されています。",
+                    }
+                ],
+            }
+        )
 
     # Add highlights section
     if highlights:
@@ -105,14 +121,18 @@ def build_slack_blocks(
                 }
             )
 
-    # Add link to Discussion
+    # Add link to Discussion or Repository
     blocks.append({"type": "divider"})
+    if discussion_failed:
+        link_text = f"<{discussion_url}|📂 View Repository>"
+    else:
+        link_text = f"<{discussion_url}|📋 View Full Discussion>"
     blocks.append(
         {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": f"<{discussion_url}|📋 View Full Discussion>",
+                "text": link_text,
             },
         }
     )
@@ -140,16 +160,18 @@ def send_daily_notification(
     high_count: int,
     trend_count: int,
     highlights: list[dict],
+    discussion_failed: bool = False,
 ) -> bool:
     """
     Send daily summary to Slack.
 
     Args:
         date_str: Date string (YYYY-MM-DD)
-        discussion_url: URL to GitHub Discussion
+        discussion_url: URL to GitHub Discussion (or fallback repo URL)
         high_count: Number of HIGH trust items
         trend_count: Number of TREND items
         highlights: Top items to feature
+        discussion_failed: Whether Discussion creation failed
 
     Returns:
         True if sent successfully
@@ -166,6 +188,7 @@ def send_daily_notification(
         high_count=high_count,
         trend_count=trend_count,
         highlights=highlights,
+        discussion_failed=discussion_failed,
     )
 
     payload = {
