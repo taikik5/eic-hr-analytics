@@ -12,6 +12,7 @@ HR分析向けの外部情報自動収集システム。毎日9:00 JSTにGitHub 
    - [このシステムでできること](#このシステムでできること)
    - [3つの出力チャネルと役割](#3つの出力チャネルと役割)
    - [活用シナリオ](#活用シナリオ)
+   - [JSONLデータの実践的活用パターン](#jsonlデータの実践的活用パターン)
 2. [収集対象サイト一覧](#収集対象サイト一覧)
 3. [システム仕様](#システム仕様)
    - [アーキテクチャ](#アーキテクチャ)
@@ -181,6 +182,200 @@ JSONLデータをNotionやConfluenceにインポート
 蓄積したJSONLデータ
  → RAG（検索拡張生成）の知識ベースとして活用
  → 「最新のHR法制度について教えて」と社内AIに質問
+```
+
+### JSONLデータの実践的活用パターン
+
+EICが蓄積するJSONLファイル（`data/items/YYYY-MM.jsonl`）には、各記事の詳細情報が構造化されて保存されています。以下は、実際の業務で活用される3つの代表的なシーンです。
+
+#### パターン1: 採用施策の改善
+
+**状況**: 新卒採用の早期離職が多い問題を解決したい
+
+**JSONLデータの活用フロー**:
+
+1. **テーマで絞り込み**
+   ```json
+   themes = "recruiting" の記事を抽出（例：15件）
+   ```
+
+2. **信頼度でランキング**
+   ```
+   reliability_score 65点以上 → 業界の信頼できる情報
+   60点以下 → 参考程度にとどめる
+   ```
+
+3. **キーポイントの抽出**
+   各記事の `key_points` から施策のヒントを発見
+   ```
+   例："理念共感が定着率向上の鍵"
+      "RJP理論による情報開示が重要"
+      "経営者の早期関与が必須"
+   ```
+
+4. **経営層への提案**
+   複数の信頼度高い記事から「理念共感採用」の重要性を立証し、
+   採用ページの改善やRJP実装を提案
+
+5. **施策の継続的モニタリング**
+   実装後、同じテーマの新しい事例をEICで追跡し、効果測定
+
+**実装例**（Pythonでの分析）:
+```python
+import pandas as pd
+
+# JSONLを読み込み
+df = pd.read_json('data/items/2026-01.jsonl', lines=True)
+
+# 採用関連の記事を抽出
+recruiting_articles = df[df['themes'].apply(lambda x: 'recruiting' in x)]
+
+# 信頼度が高い順にソート
+high_quality = recruiting_articles[recruiting_articles['reliability_score'] >= 65]\
+    .sort_values('reliability_score', ascending=False)
+
+# 要点と信頼度を表示
+print(high_quality[['title', 'reliability_score', 'key_points', 'url']])
+```
+
+#### パターン2: 組織課題の多角的把握
+
+**状況**: 「最近、何か組織の雰囲気が変わってきた気がする」という経営層の懸念
+
+**JSONLデータの活用フロー**:
+
+1. **テーマ別の月次集計**
+   ```
+   themes の出現頻度を集計：
+   - recruiting       8件
+   - attrition        8件
+   - engagement       5件
+   - compensation     2件
+   - wellbeing        3件
+   ```
+
+2. **トレンド変化の検知**
+   - 前月より「定着」関連の記事が増加 → 業界全体で離職課題が顕著化
+   - 「女性のウェルビーイング」が新たなテーマに → 自社でも対応が必要かも
+
+3. **タグから具体的な対策テーマを抽出**
+   ```
+   "理念共感", "キャリア自律", "オンボーディング",
+   "心理的安全性", "女性の健康支援" などのキーワードが頻出
+   ```
+
+4. **経営層への報告資料作成**
+   「業界全体で採用と定着が両立困難な状況。
+    自社もこの波に乗っている可能性がある。
+    来年度は入社後の適応支援に投資すべき」
+
+**実装例**（集計):
+```python
+# テーマ別の記事数をカウント
+theme_counts = {}
+for _, row in df.iterrows():
+    for theme in row['themes']:
+        theme_counts[theme] = theme_counts.get(theme, 0) + 1
+
+# 出現頻度でソート
+sorted_themes = sorted(theme_counts.items(), key=lambda x: x[1], reverse=True)
+for theme, count in sorted_themes:
+    print(f"{theme}: {count}件")
+
+# タグの出現頻度
+from collections import Counter
+all_tags = []
+for _, row in df.iterrows():
+    all_tags.extend(row['tags'])
+tag_counts = Counter(all_tags)
+print("\nホットなタグ Top 10:")
+for tag, count in tag_counts.most_common(10):
+    print(f"  {tag}: {count}件")
+```
+
+#### パターン3: 外部ベストプラクティスの検証
+
+**状況**: 「1on1制度の導入を考えているが、実際に効果がある？」
+
+**JSONLデータの活用フロー**:
+
+1. **キーワード検索**
+   ```json
+   title または summary に "1on1" が含まれる記事を検索
+   ```
+
+2. **企業事例の発見**
+   ```
+   例："味の素式ななメンター制度"
+       reliability_score: 65 (High Trust Source + 企業事例)
+       key_points:
+       - "応募者が定員の1.5〜2倍に達している"
+       - "エンゲージメント向上・離職率低下の効果"
+   ```
+
+3. **信頼度の確認**
+   - 記事元が「HR NOTE」+ 企業の公式セミナー → 信頼性が高い
+   - published_at が最近 → 最新の事例
+
+4. **経営層への企画書に引用**
+   ```
+   「HR NOTEの記事によると、味の素のななメンター制度は
+    エンゲージメント向上と離職率低下に貢献。
+    参考資料：[記事URL]」
+   ```
+
+5. **継続的なベンチマーク**
+   実装後、定期的にEICで同テーマの新事例をモニタリングし、
+   業界水準と自社の成果を比較
+
+**実装例**（キーワード検索）:
+```python
+# "1on1" に関連する記事を検索
+search_keyword = '1on1'
+results = df[
+    df['title'].str.contains(search_keyword, case=False) |
+    df['summary'].str.contains(search_keyword, case=False)
+]
+
+# 信頼度が高い順に表示
+for _, row in results.sort_values('reliability_score', ascending=False).iterrows():
+    print(f"【{row['source_name']}】{row['reliability_score']}点")
+    print(f"{row['title']}")
+    print(f"要点：{row['key_points']}")
+    print(f"URL: {row['url']}\n")
+```
+
+#### JSONLデータの実用的な活用パターン一覧
+
+| 活用シーン | 使う項目 | 効果 |
+|-----------|----------|------|
+| **課題分析** | `themes`, `key_points` | 業界トレンドから自社課題を発見 |
+| **施策の根拠集め** | `title`, `summary`, `url` | 提案に説得力をもたせる |
+| **ベストプラクティス検証** | `reliability_score`, `source_type` | 信頼度で情報の質を判断 |
+| **定期モニタリング** | `observed_at`, `tags` | 同テーマの継続的な追跡 |
+| **経営判断材料** | `published_at` の時系列 | トレンド変化を検知 |
+| **BIツール連携** | 全項目 | TableauやPower BIでの可視化 |
+
+#### JSONLの主要フィールド説明
+
+各記事は以下の情報を含みます（検索・分析に活用）:
+
+```json
+{
+  "item_id": "sha256ハッシュ",              // 重複排除用のID
+  "url": "記事のURL",                      // 元記事へのリンク
+  "title": "AI要約されたタイトル",         // 正規化されたタイトル
+  "summary": "200-400字の日本語要約",      // すぐに読める要点
+  "key_points": ["要点1", "要点2", "要点3"], // 必ず3つ
+  "themes": ["recruiting", "attrition"],   // 複数選択可
+  "tags": ["採用", "新卒採用", ...],       // 自由タグ
+  "source_name": "HR NOTE",                // 情報源名
+  "source_type": "news",                   // 信頼度の基準
+  "reliability_score": 65,                 // 0-100のスコア
+  "published_at": "2026-01-31T...",        // 公開日
+  "observed_at": "2026-01-31T16:36:...",   // 収集日時
+  "language": "ja"                         // 言語（ja/en/unknown）
+}
 ```
 
 ---
