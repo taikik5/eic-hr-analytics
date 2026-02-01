@@ -42,7 +42,7 @@ from scripts.github_discussions import (
     ensure_daily_discussion,
     upsert_list_comment,
 )
-from scripts.slack_notify import send_daily_notification
+from scripts.slack_notify import send_daily_notification, send_no_updates_notification
 
 logger = logging.getLogger(__name__)
 
@@ -341,8 +341,9 @@ def run_daily(date_override: str | None = None) -> int:
     else:
         logger.info("No new items collected, skipping Discussions")
 
-    # Slack notification (send even if Discussion failed)
+    # Slack notification
     if high_items or trend_items:
+        # Send regular notification with highlights
         logger.info("-" * 40)
         logger.info("Sending Slack notification")
 
@@ -364,6 +365,14 @@ def run_daily(date_override: str | None = None) -> int:
         except Exception as e:
             logger.error(f"Slack notification error: {e}")
             # Don't fail the job for Slack errors
+    else:
+        # No new articles - send "no updates" notification to Slack only
+        logger.info("-" * 40)
+        logger.info("Sending 'no updates' Slack notification")
+        try:
+            send_no_updates_notification(date_str)
+        except Exception as e:
+            logger.error(f"Slack notification error: {e}")
 
     # Summary
     logger.info("=" * 60)

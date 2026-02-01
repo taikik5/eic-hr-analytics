@@ -215,6 +215,76 @@ def send_daily_notification(
         raise  # Re-raise for retry
 
 
+def send_no_updates_notification(date_str: str) -> bool:
+    """
+    Send notification when no new articles were found.
+
+    Args:
+        date_str: Date string (YYYY-MM-DD)
+
+    Returns:
+        True if sent successfully
+    """
+    if not SLACK_WEBHOOK_URL:
+        logger.warning("Slack webhook URL not configured, skipping notification")
+        return False
+
+    blocks = [
+        {
+            "type": "header",
+            "text": {
+                "type": "plain_text",
+                "text": f"📰 EIC Daily Insights - {date_str}",
+                "emoji": True,
+            },
+        },
+        {"type": "divider"},
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": (
+                    "*収集結果*\n"
+                    "本日の更新はありませんでした。\n\n"
+                    "_新しい記事が見つからなかったか、すべて既に収集済みでした。_"
+                ),
+            },
+        },
+        {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "mrkdwn",
+                    "text": "Powered by EIC (External Insight Collector)",
+                }
+            ],
+        },
+    ]
+
+    payload = {
+        "text": f"EIC Daily: No new articles ({date_str})",
+        "blocks": blocks,
+    }
+
+    try:
+        response = requests.post(
+            SLACK_WEBHOOK_URL,
+            json=payload,
+            timeout=30,
+        )
+
+        if response.status_code == 200:
+            logger.info("Slack 'no updates' notification sent successfully")
+            return True
+        else:
+            logger.error(f"Slack notification failed: {response.status_code} - {response.text}")
+            return False
+
+    except requests.RequestException as e:
+        logger.error(f"Slack notification request failed: {e}")
+        return False
+
+
 def send_error_notification(date_str: str, error_message: str) -> bool:
     """
     Send error notification to Slack.
