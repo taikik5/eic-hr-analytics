@@ -1,115 +1,408 @@
 # HRテーマ辞書
-# LLMはこのキーからthemesを選択する
+# LLMはこのキーからthemesを選択する（複数選択可）
 
 themes:
+  - key: workstyle
+    name: "働き方"
+    description: "勤務時間、リモート勤務、休暇情報など働き方に関するデータ"
+    keywords:
+      - "働き方"
+      - "勤務時間"
+      - "リモートワーク"
+      - "テレワーク"
+      - "フレックス"
+      - "休暇"
+      - "有給"
+      - "workstyle"
+      - "remote work"
+      - "hybrid work"
+
+  - key: engagement
+    name: "エンゲージメント"
+    description: "社員エンゲージメント調査に関するデータ"
+    keywords:
+      - "エンゲージメント"
+      - "従業員満足度"
+      - "eNPS"
+      - "サーベイ"
+      - "パルスサーベイ"
+      - "engagement"
+      - "pulse survey"
+
+  - key: office
+    name: "オフィス"
+    description: "オフィスの各フロアへの入退室状況に関するデータ"
+    keywords:
+      - "オフィス"
+      - "入退室"
+      - "職場環境"
+      - "フロア"
+      - "office"
+      - "workplace"
+
+  - key: meeting
+    name: "会議"
+    description: "会社での会議に関係するデータ"
+    keywords:
+      - "会議"
+      - "ミーティング"
+      - "コミュニケーション"
+      - "meeting"
+      - "collaboration"
+
+  - key: employee
+    name: "従業員"
+    description: "従業員の所属組織に関するデータ"
+    keywords:
+      - "従業員"
+      - "社員"
+      - "所属"
+      - "組織"
+      - "employee"
+      - "workforce"
+
+  - key: SAP
+    name: "SAP"
+    description: "従業員の目標設定、評価、取得済みの資格などに関するデータ"
+    keywords:
+      - "SAP"
+      - "SAP SuccessFactors"
+      - "SAP HCM"
+      - "目標設定"
+      - "評価"
+      - "資格"
+      - "ERP"
+
   - key: recruiting
     name: "採用"
+    description: "採用計画、求人、候補者集客、選考、内定、採用KPIなど採用活動に関するデータ"
     keywords:
       - "採用"
       - "求人"
       - "選考"
-      - "内定辞退"
+      - "内定"
       - "母集団形成"
+      - "採用KPI"
       - "recruiting"
       - "hiring"
       - "talent acquisition"
 
-  - key: attrition
-    name: "離職"
+  - key: onboarding
+    name: "オンボーディング"
+    description: "入社手続き、研修受講、配属、立ち上がり支援などオンボーディングに関するデータ"
     keywords:
-      - "離職"
-      - "退職"
-      - "定着"
       - "オンボーディング"
-      - "attrition"
-      - "turnover"
-      - "retention"
+      - "入社"
+      - "入社手続き"
+      - "新入社員研修"
+      - "配属"
+      - "onboarding"
+
+  - key: offboarding
+    name: "オフボーディング"
+    description: "退職手続き、引継ぎ、アカウント停止、退職理由分析などオフボーディングに関するデータ"
+    keywords:
+      - "オフボーディング"
+      - "退職手続き"
+      - "引継ぎ"
+      - "退職理由"
+      - "offboarding"
+      - "exit process"
 
   - key: compensation
-    name: "賃金"
+    name: "報酬"
+    description: "基本給、賞与、昇給、等級・レンジ、報酬ポリシーなど報酬に関するデータ"
     keywords:
+      - "報酬"
       - "賃金"
       - "給与"
-      - "報酬"
-      - "ペイレンジ"
-      - "賃上げ"
-      - "格差"
-      - "pay"
+      - "賞与"
+      - "昇給"
+      - "等級"
       - "compensation"
       - "salary"
+      - "pay"
 
-  - key: engagement
-    name: "エンゲージメント"
+  - key: payroll
+    name: "給与計算"
+    description: "勤怠集計、支給控除、給与計算、年末調整など給与実務に関するデータ"
     keywords:
-      - "エンゲージメント"
-      - "サーベイ"
-      - "eNPS"
-      - "パルスサーベイ"
-      - "従業員満足度"
-      - "engagement"
-      - "pulse survey"
+      - "給与計算"
+      - "勤怠"
+      - "支給"
+      - "控除"
+      - "年末調整"
+      - "payroll"
 
-  - key: human_capital
-    name: "人的資本開示"
+  - key: benefits
+    name: "福利厚生"
+    description: "福利厚生、各種手当、企業年金、社宅、持株会などベネフィットに関するデータ"
     keywords:
-      - "人的資本"
-      - "ISO30414"
-      - "統合報告"
-      - "開示"
-      - "human capital"
-      - "disclosure"
+      - "福利厚生"
+      - "手当"
+      - "企業年金"
+      - "社宅"
+      - "持株会"
+      - "benefits"
+      - "perks"
+
+  - key: wellbeing
+    name: "ウェルビーイング"
+    description: "メンタルヘルス、ストレスチェック、EAP、健康増進施策などウェルビーイングに関するデータ"
+    keywords:
+      - "ウェルビーイング"
+      - "メンタルヘルス"
+      - "ストレスチェック"
+      - "EAP"
+      - "健康経営"
+      - "wellbeing"
+      - "wellness"
+      - "work-life balance"
+
+  - key: healthsafety
+    name: "健康安全"
+    description: "労働安全衛生、産業医面談、労災、職場環境リスクなど安全衛生に関するデータ"
+    keywords:
+      - "労働安全"
+      - "安全衛生"
+      - "産業医"
+      - "労災"
+      - "職場環境"
+      - "health and safety"
+      - "occupational safety"
 
   - key: reskilling
     name: "リスキリング"
+    description: "リスキリング施策、職種転換、スキル再定義、学習投資、受講完了/スキル獲得などに関するデータ"
     keywords:
       - "リスキリング"
       - "研修"
       - "人材育成"
       - "学習"
-      - "upskilling"
+      - "職種転換"
       - "reskilling"
+      - "upskilling"
       - "L&D"
 
+  - key: talent
+    name: "タレントマネジメント"
+    description: "スキル/コンピテンシー、タレントプール、配置最適化、ハイポテンシャル管理などタレント管理に関するデータ"
+    keywords:
+      - "タレントマネジメント"
+      - "人材管理"
+      - "スキル"
+      - "コンピテンシー"
+      - "ハイポテンシャル"
+      - "配置"
+      - "talent management"
+      - "high potential"
+
+  - key: succession
+    name: "後継者育成"
+    description: "後継者計画、キーポジション、サクセッション候補、育成進捗など後継者管理に関するデータ"
+    keywords:
+      - "後継者"
+      - "サクセッション"
+      - "後継者計画"
+      - "キーポジション"
+      - "succession planning"
+
+  - key: orgdesign
+    name: "組織設計"
+    description: "組織改編、職務/ジョブ設計、権限分掌、スパン・オブ・コントロールなど組織設計に関するデータ"
+    keywords:
+      - "組織設計"
+      - "組織改編"
+      - "職務設計"
+      - "ジョブ設計"
+      - "organization design"
+      - "org structure"
+
+  - key: headcount
+    name: "人員計画"
+    description: "人員計画、定員管理、FTE、要員需給、採用枠など人員数・要員管理に関するデータ"
+    keywords:
+      - "人員計画"
+      - "要員計画"
+      - "定員"
+      - "FTE"
+      - "headcount"
+      - "workforce planning"
+
+  - key: attrition
+    name: "離職"
+    description: "離職（退職・解雇・契約終了等）の発生、離職率、要因分析、予兆検知、抑止施策などに関するデータ"
+    keywords:
+      - "離職"
+      - "退職"
+      - "離職率"
+      - "定着"
+      - "リテンション"
+      - "attrition"
+      - "turnover"
+      - "retention"
+
+  - key: laborrelations
+    name: "労使関係"
+    description: "労使協議、組合対応、団体交渉、労務トラブルなど労使関係に関するデータ"
+    keywords:
+      - "労使関係"
+      - "労働組合"
+      - "団体交渉"
+      - "労務トラブル"
+      - "labor relations"
+      - "union"
+
+  - key: compliance
+    name: "コンプライアンス"
+    description: "就業規則、社内規程、監査、内部統制、ハラスメント対応などコンプライアンスに関するデータ"
+    keywords:
+      - "コンプライアンス"
+      - "就業規則"
+      - "監査"
+      - "内部統制"
+      - "ハラスメント"
+      - "compliance"
+      - "audit"
+
+  - key: laborlaw
+    name: "労働法"
+    description: "労働法改正、労基署対応、36協定、労働時間規制など法令・規制対応に関するデータ"
+    keywords:
+      - "労働法"
+      - "労働基準法"
+      - "法改正"
+      - "36協定"
+      - "労基署"
+      - "labor law"
+      - "employment law"
+
   - key: labor_market
-    name: "労働市場/制度"
+    name: "労働市場"
+    description: "労働市場動向（賃金水準・需給・求人倍率等）や政策・制度トレンドなどマクロ動向に関するデータ"
     keywords:
       - "労働市場"
       - "労働統計"
-      - "法改正"
-      - "労働力調査"
+      - "有効求人倍率"
       - "雇用統計"
+      - "賃金水準"
       - "labor market"
       - "employment statistics"
 
   - key: dei
     name: "DE&I"
+    description: "DE&I（多様性・公平性・包摂）、ジェンダー、障がい者雇用、育休取得などに関するデータ"
     keywords:
       - "ダイバーシティ"
       - "インクルージョン"
       - "多様性"
       - "女性活躍"
       - "障害者雇用"
+      - "育休"
       - "diversity"
       - "inclusion"
       - "equity"
 
+  - key: culture
+    name: "組織文化"
+    description: "企業文化、バリュー浸透、社内コミュニケーション、行動規範などカルチャーに関するデータ"
+    keywords:
+      - "組織文化"
+      - "企業文化"
+      - "カルチャー"
+      - "バリュー"
+      - "行動規範"
+      - "organizational culture"
+      - "corporate culture"
+
+  - key: leadership
+    name: "リーダーシップ"
+    description: "管理職育成、マネジメント施策、1on1、評価者訓練などリーダーシップに関するデータ"
+    keywords:
+      - "リーダーシップ"
+      - "マネジメント"
+      - "管理職"
+      - "1on1"
+      - "評価者"
+      - "leadership"
+      - "management"
+
   - key: hr_tech
     name: "HRテック"
+    description: "HRシステム、ATS、勤怠/給与/タレント管理ツール、AI活用、分析/自動化などHRテクノロジーに関するデータ"
     keywords:
       - "HRテック"
       - "HR Tech"
-      - "タレントマネジメント"
+      - "ATS"
       - "ピープルアナリティクス"
-      - "people analytics"
+      - "AI活用"
       - "HRIS"
+      - "people analytics"
 
-  - key: wellbeing
-    name: "ウェルビーイング"
+  - key: privacy
+    name: "プライバシー"
+    description: "個人情報保護、アクセス権限、データガバナンス、セキュリティ事故などプライバシー/セキュリティに関するデータ"
     keywords:
-      - "ウェルビーイング"
-      - "健康経営"
-      - "メンタルヘルス"
-      - "働き方"
-      - "wellbeing"
-      - "wellness"
-      - "work-life balance"
+      - "プライバシー"
+      - "個人情報"
+      - "データ保護"
+      - "GDPR"
+      - "セキュリティ"
+      - "privacy"
+      - "data protection"
+
+  - key: globalmobility
+    name: "グローバルモビリティ"
+    description: "海外赴任、駐在規程、ビザ、グローバル等級・報酬などグローバル人事に関するデータ"
+    keywords:
+      - "グローバルモビリティ"
+      - "海外赴任"
+      - "駐在員"
+      - "ビザ"
+      - "国際人事"
+      - "global mobility"
+      - "expat"
+
+  - key: contractor
+    name: "業務委託"
+    description: "派遣/業務委託/フリーランス、外部人材活用、契約管理など非正規・外部人材に関するデータ"
+    keywords:
+      - "業務委託"
+      - "派遣"
+      - "フリーランス"
+      - "契約社員"
+      - "外部人材"
+      - "contractor"
+      - "contingent worker"
+
+  - key: grievance
+    name: "苦情処理"
+    description: "相談窓口、苦情処理、内部通報、是正措置など従業員の申し立て対応に関するデータ"
+    keywords:
+      - "苦情処理"
+      - "相談窓口"
+      - "内部通報"
+      - "是正措置"
+      - "grievance"
+      - "whistleblowing"
+
+  - key: human_capital
+    name: "人的資本開示"
+    description: "人的資本開示（有報/統合報告/サステナ報告等）、人材KPI、開示指標/算定方法、投資対効果などに関するデータ"
+    keywords:
+      - "人的資本"
+      - "ISO30414"
+      - "統合報告"
+      - "開示"
+      - "人材KPI"
+      - "human capital"
+      - "disclosure"
+
+  - key: other
+    name: "その他"
+    description: "上記のどれにも当てはまらない（または複数に跨り特定しにくい）HR関連のデータ"
+    keywords:
+      - "その他"
+      - "一般"
+      - "other"
+      - "general"
