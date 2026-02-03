@@ -316,3 +316,71 @@ class LLMClient:
         except Exception as e:
             logger.error(f"Connection test failed: {e}")
             return False
+
+    def generate_daily_summary(self, all_items: list[dict]) -> str | None:
+        """
+        Generate a natural language summary of the day's collected articles.
+
+        Args:
+            all_items: All items collected today
+
+        Returns:
+            Summary text or None on failure
+        """
+        if not all_items:
+            return None
+
+        # Build summary of articles for LLM
+        articles_info = []
+        for item in all_items:
+            title = item.get("title", "")
+            themes = item.get("themes", [])
+            summary = item.get("summary", "")[:100]
+            articles_info.append(f"- {title} (テーマ: {', '.join(themes)}): {summary}")
+
+        articles_text = "\n".join(articles_info[:30])  # Limit to 30 articles
+
+        # Count themes for context
+        theme_counts: dict[str, int] = {}
+        for item in all_items:
+            for theme in item.get("themes", []):
+                theme_counts[theme] = theme_counts.get(theme, 0) + 1
+
+        sorted_themes = sorted(theme_counts.items(), key=lambda x: x[1], reverse=True)
+        top_themes_text = ", ".join([f"{t[0]}({t[1]}件)" for t in sorted_themes[:5]])
+
+        prompt = f"""以下は本日収集したHR関連記事の一覧です。
+
+## 収集記事数: {len(all_items)}件
+## 主要テーマ: {top_themes_text}
+
+## 記事一覧:
+{articles_text}
+
+上記の記事から、本日のHR業界のトレンドや特徴をまとめてください。
+- 日本語で記述
+- 5文程度でまとめる（短すぎず長すぎない適度な長さ）
+- 具体的なテーマや傾向に言及
+- 箇条書きではなく文章で
+- どのようなトピックが多かったか、注目すべきポイントは何かを説明"""
+
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "あなたはHR業界のアナリストです。収集した記事から今日のトレンドを簡潔にまとめてください。",
+                    },
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.5,
+                max_tokens=300,
+            )
+
+            result = response.choices[0].message.content
+            return result.strip() if result else None
+
+        except Exception as e:
+            logger.error(f"Daily summary generation failed: {e}")
+            return None

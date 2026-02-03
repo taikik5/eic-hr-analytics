@@ -13,12 +13,61 @@ from scripts.utils import SLACK_WEBHOOK_URL, retry_with_backoff
 logger = logging.getLogger(__name__)
 
 
+def build_trend_summary(all_items: list[dict]) -> str:
+    """
+    Build trend summary text from all collected items.
+
+    Args:
+        all_items: All items collected today
+
+    Returns:
+        Trend summary text in markdown format
+    """
+    if not all_items:
+        return ""
+
+    # Count themes
+    theme_counts: dict[str, int] = {}
+    for item in all_items:
+        themes = item.get("themes", [])
+        for theme in themes:
+            theme_counts[theme] = theme_counts.get(theme, 0) + 1
+
+    if not theme_counts:
+        return ""
+
+    # Sort by count (descending)
+    sorted_themes = sorted(theme_counts.items(), key=lambda x: x[1], reverse=True)
+
+    # Build summary text
+    total_articles = len(all_items)
+    top_themes = sorted_themes[:5]  # Top 5 themes
+
+    summary_lines = [f"*📊 本日のトレンド* ({total_articles}件の記事を分析)"]
+
+    for theme, count in top_themes:
+        percentage = round(count / total_articles * 100)
+        bar_length = min(count, 10)  # Max 10 blocks
+        bar = "█" * bar_length
+        summary_lines.append(f"• `{theme}`: {count}件 ({percentage}%) {bar}")
+
+    # Show remaining themes count if any
+    remaining = len(sorted_themes) - 5
+    if remaining > 0:
+        other_themes = [t[0] for t in sorted_themes[5:10]]
+        summary_lines.append(f"• 他: {', '.join(other_themes)}...")
+
+    return "\n".join(summary_lines)
+
+
 def build_slack_blocks(
     date_str: str,
     discussion_url: str,
     high_count: int,
     trend_count: int,
     highlights: list[dict],
+    all_items: list[dict] | None = None,
+    trend_summary_text: str | None = None,
     discussion_failed: bool = False,
 ) -> list[dict]:
     """
@@ -30,6 +79,8 @@ def build_slack_blocks(
         high_count: Number of HIGH trust items
         trend_count: Number of TREND items
         highlights: Top items to feature
+        all_items: All items collected (for trend summary)
+        trend_summary_text: LLM-generated summary text
         discussion_failed: Whether Discussion creation failed
 
     Returns:
@@ -47,6 +98,38 @@ def build_slack_blocks(
             },
         },
         {"type": "divider"},
+    ]
+
+    # Add trend summary at the top if all_items is provided
+    if all_items:
+        trend_summary = build_trend_summary(all_items)
+        if trend_summary:
+            blocks.append(
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": trend_summary,
+                    },
+                }
+            )
+            # Add LLM-generated summary text if available
+            if trend_summary_text:
+                blocks.append(
+                    {
+                        "type": "context",
+                        "elements": [
+                            {
+                                "type": "mrkdwn",
+                                "text": f"💡 {trend_summary_text}",
+                            }
+                        ],
+                    }
+                )
+            blocks.append({"type": "divider"})
+
+    # Add collection stats
+    blocks.append(
         {
             "type": "section",
             "text": {
@@ -58,8 +141,8 @@ def build_slack_blocks(
                     f"• 📊 合計: {total_count}件"
                 ),
             },
-        },
-    ]
+        }
+    )
 
     # Add warning if Discussion creation failed
     if discussion_failed:
@@ -108,7 +191,7 @@ def build_slack_blocks(
             item_text = f"{rel_emoji} *<{url}|{title}>*\n"
             item_text += f"_{source_name}_"
             if themes:
-                item_text += f" | {', '.join(themes[:3])}"
+                item_text += f" | {', '.join(themes)}"
             item_text += f"\n{summary}..."
 
             blocks.append(
@@ -160,6 +243,8 @@ def send_daily_notification(
     high_count: int,
     trend_count: int,
     highlights: list[dict],
+    all_items: list[dict] | None = None,
+    trend_summary_text: str | None = None,
     discussion_failed: bool = False,
 ) -> bool:
     """
@@ -171,6 +256,8 @@ def send_daily_notification(
         high_count: Number of HIGH trust items
         trend_count: Number of TREND items
         highlights: Top items to feature
+        all_items: All items collected (for trend summary)
+        trend_summary_text: LLM-generated summary text
         discussion_failed: Whether Discussion creation failed
 
     Returns:
@@ -188,6 +275,8 @@ def send_daily_notification(
         high_count=high_count,
         trend_count=trend_count,
         highlights=highlights,
+        trend_summary_text=trend_summary_text,
+        all_items=all_items,
         discussion_failed=discussion_failed,
     )
 

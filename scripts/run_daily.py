@@ -354,12 +354,27 @@ def run_daily(date_override: str | None = None) -> int:
         notification_url = discussion_url or fallback_url
 
         try:
+            # Combine all items for trend analysis
+            all_items = high_items + trend_items
+
+            # Generate LLM summary of the day's trends
+            trend_summary_text = None
+            try:
+                logger.info("Generating daily trend summary with LLM...")
+                trend_summary_text = llm.generate_daily_summary(all_items)
+                if trend_summary_text:
+                    logger.info(f"Trend summary generated: {trend_summary_text[:50]}...")
+            except Exception as e:
+                logger.warning(f"Failed to generate trend summary: {e}")
+
             send_daily_notification(
                 date_str=date_str,
                 discussion_url=notification_url,
                 high_count=len(high_items),
                 trend_count=len(trend_items),
                 highlights=highlights,
+                all_items=all_items,
+                trend_summary_text=trend_summary_text,
                 discussion_failed=(discussion_url is None),
             )
         except Exception as e:
