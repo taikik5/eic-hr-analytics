@@ -4,6 +4,11 @@
     "source": "HR NOTE",
     "title": "AI活用で人事領域をどう効率化する？「コミュニケーションの可視化」がもたらす変化とは"
   },
+  "0cbb43a2d63e710bc687957c43eb2c3dbc95863c2d20a361723015e375bdee49": {
+    "first_seen": "2026-02-03T22:08:18.890732+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "Gemfileを掃除しよう —— 見知らぬGemが追加された背景を追ってみた"
+  },
   "1f7a92f816ad21e5f7b0a64523a663e2cb4348faab8af747e5f9257bf076b251": {
     "first_seen": "2026-02-03T21:54:28.899338+09:00",
     "source": "SmartHR Tech Blog",
@@ -14,10 +19,30 @@
     "source": "SmartHR Tech Blog",
     "title": "Rubyリリース30周年パーティー参加レポート"
   },
+  "28ca191b892efef9c1a7ade9a637a6e1da87fe9c2dbaee464b66cd1d5d229763": {
+    "first_seen": "2026-02-03T22:08:02.000686+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "権限基盤のアーキテクチャ戦略 —— 新しい権限基盤の設計"
+  },
+  "2ae7e328649c754515033ba4c3d24c1143d05cd05ebe93df3aff7d1ac6f35c0e": {
+    "first_seen": "2026-02-03T22:08:25.822395+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "YAPC::Fukuoka 非公式リジェクトコン 2025 開催レポート"
+  },
   "2c25e6631a9f1ce8c94d04d640fa2864a7f4b3c1df9e09177afae7c0b1830862": {
     "first_seen": "2026-02-03T21:53:19.768730+09:00",
     "source": "HR NOTE",
     "title": "社員の年収アップが企業成長につながる——公平で納得度の高い昇給制度をどう設計するか"
+  },
+  "32b6ca7b7250ce8c2a23ecd0b24888459cab213e0819c2606b44bf017df64613": {
+    "first_seen": "2026-02-03T22:08:58.575678+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "MCP Serverで大量のヘルプページを爆速で作る"
+  },
+  "385f2b9aeb581a988dd75852710c15bd2e669e49968e0b73670e716232a03ca2": {
+    "first_seen": "2026-02-03T22:08:34.090106+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "SmartHRはRegional Scrum Gathering Tokyo 2026にシルバースポンサーとして協賛し、アジャイル組織の挑戦を共有"
   },
   "3f731ade07d62d5254a22d7fd0c98fa40754eea09983b4e10d6481f228965ebc": {
     "first_seen": "2026-02-03T21:52:54.960443+09:00",
@@ -68,6 +93,11 @@
     "first_seen": "2026-02-03T21:55:18.767886+09:00",
     "source": "SmartHR Tech Blog",
     "title": "北陸Ruby会議01レポート —— みんなとわたしたちのRubyの使い方"
+  },
+  "937e5947f056ffe354f01c4350c8db9fa551d3ee77765e3e514b448537a64c76": {
+    "first_seen": "2026-02-03T22:08:44.361118+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "SmartHRに開発組織のイネーブリングユニット「DevEnable」を新設しました"
   },
   "ab2a6aa29135b260cb507beec66323633a4963210153720e37a151f038c3aafe": {
     "first_seen": "2026-02-03T21:53:29.816014+09:00",
@@ -124,6 +154,21 @@
     "source": "SmartHR Tech Blog",
     "title": "SmartHRのQAエンジニア歴4年で見えてきた「QAエンジニアの役割」"
   },
+  "dc7cef702799de6508db138c2b82f179038f11e0059f359b604315cccecf51f4": {
+    "first_seen": "2026-02-03T22:07:43.906402+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "チームで良いコードの基準がバラバラ？ 『オブジェクト指向設計実践ガイド』の読書会を通して共通認識を作りました"
+  },
+  "dd3dedd8e771a95721ad7b2600a58b902a57b490b50dc1d3f03a3fd42a643b64": {
+    "first_seen": "2026-02-03T22:08:51.258248+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "【27卒】夏のインターンシップ（8月）を開催しました！"
+  },
+  "ec4d69f8cfd006db72f293ded2177cfd204519d8f67e22e8a3af3f7a0991134b": {
+    "first_seen": "2026-02-03T22:07:52.332705+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "SmartHR CREが目指すRevOpsの実践と組織成長への貢献"
+  },
   "fad1db3e6353ce598f829ef75b9e9ea7750f97b055182c0bbbef2e7e95dca00c": {
     "first_seen": "2026-02-03T21:54:13.147229+09:00",
     "source": "SmartHR Tech Blog",
@@ -148,5 +193,10 @@
     "first_seen": "2026-02-03T21:54:05.728495+09:00",
     "source": "SmartHR Tech Blog",
     "title": "SREチームへの取材記事がNew Relicのサイトに掲載されました"
+  },
+  "ff7daae25ef2e49aefd9485c7eef4f4688869eb13fd5914abce6d02039161c70": {
+    "first_seen": "2026-02-03T22:08:07.485342+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "Technical Writing Meetup vol.47 登壇レポート"
   }
 }
