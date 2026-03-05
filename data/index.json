@@ -124,6 +124,11 @@
     "source": "HR NOTE",
     "title": "未来の経営幹部を獲得する。ハイレイヤー採用の新常識 〜HR LEADERSレポート〜"
   },
+  "6985b4f7a808d6abea05f499dc93d7d3147189be8768298d74c94a72e3487e00": {
+    "first_seen": "2026-03-05T10:43:01.328612+09:00",
+    "source": "SmartHR Tech Blog",
+    "title": "バックエンドエンジニアがフロントエンドをLLMに頼って実装した反省点"
+  },
   "6fc032f124d23aec716a8a96584c173b0bf03d724615e8ebb2c3d40824c03252": {
     "first_seen": "2026-02-03T21:53:40.416574+09:00",
     "source": "HR NOTE",
@@ -158,6 +163,11 @@
     "first_seen": "2026-02-03T21:55:57.928731+09:00",
     "source": "SmartHR Tech Blog",
     "title": "Railsにおける未ログインユーザーのセッション削減方法 — セッションストアのストレージを抑制！"
+  },
+  "7f745e32b529a88cce9c76a1d2f2cd037422a02bfc1aed60e88478f541c948ee": {
+    "first_seen": "2026-03-05T10:42:53.422971+09:00",
+    "source": "HR NOTE",
+    "title": "AIキャラクターを“組織の一員”に。Resilire流「AI-ready」な組織づくり"
   },
   "87f8ad777a2b22ea04936d54db1f906c018e79e385697ee24a76d1da0c593322": {
     "first_seen": "2026-02-17T10:43:57.817509+09:00",
